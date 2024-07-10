@@ -72,7 +72,7 @@ controller.Recuperacion = async (req, res) => {
         if (!user.status) {
             res.status(user.code).json({ error: user.message });
         } else {
-            const resetLink = `http://app.polizaqui.com/confirm-forgot/${email}`;
+            const resetLink = `https://app.polizaqui.com/confirm-forgot/${email}`;
             const mailResult = await sendMail(email, resetLink);
             if (mailResult instanceof Error) {
                 res.status(500).json({ error: 'Error al enviar el correo electrónico' });
